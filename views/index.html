@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sapphire Sevens Test</title>
+    <style>
+        canvas {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: transparent;
+        }
+
+    </style>
+</head>
+    <body onload="init()">
+        <canvas id="background" height="300" width="700">
+            <!-- What to do if canvas does not display!-->
+            Canvas object not supported. Pleas use Chrome Browser for best results.
+        </canvas>
+
+        <canvas id="reelOne" height="200" width="84" style="position:absolute; left:110px; top:39px;border:1px solid #d3d3d3" >
+            Reel one canvas
+        </canvas>
+        <canvas id="reelTwo" height="200" width="84" style="position:absolute; left:212px; top:39px;border:1px solid #d3d3d3">
+            Reel two canvas
+        </canvas>
+        <canvas id="reelThree" height="200" width="84" style="position:absolute; left:312px; top:39px;border:1px solid #d3d3d3">
+            Reel three canvas
+        </canvas>
+        <canvas id="reelFour" height="200" width="84"  style="position:absolute; left:412px; top:39px;border:1px solid #d3d3d3" >
+            Reel four canvas
+        </canvas>
+        <canvas id="reelFive" height="200" width="84"  style="position:absolute; left:509px; top:39px;border:1px solid #d3d3d3" >
+            Reel five canvas
+        </canvas>
+        <canvas id="creditMeter" height="25" width="75" style="position:absolute; left:110px; top:260px">
+            Credit meter
+        </canvas>
+        <canvas id="betDisplay" height="25" width="75" style="position:absolute; left:190px; top:260px" onclick="cycleBet()">
+            Credit meter
+        </canvas>
+        <canvas id="winDisplay" height="25" width="75" style="position:absolute; left:270px; top:260px">
+            Credit meter
+        </canvas>
+        <button id="Bet" height="25" width="75" style="position:absolute; left:350px; top:260px" onclick="(function(e){ KEY_STATUS.space = true; }) (event)" >
+            Bet
+        </button>
+        <script src="../game.js"></script>
+    </body>
+</html>

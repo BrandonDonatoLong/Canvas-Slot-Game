@@ -1,0 +1,62 @@
+First struggle, learning HTML5 and how to animate stuff in HTML5.
+For this first struggle I found this tutorial. http://blog.sklambert.com/html5-canvas-game-panning-a-background/ 
+A lot of my ideas will be coming from this tutorial and applied toward the development of this game.
+
+Second struggle of programming. Learning to scale the background and frames. This includes 
+learning canvas tools. This also just took a lot of trial and error. I could have spent days just working on tools that helped with 
+dynamic scaling like what is shown in the provided example. In order to complete the project in a timely manner 
+I decided to implement the constraint on the project that the game will only be displayed on a 
+600px300px canvas. Mainly because this resolution looked good on my lower resolution second monitor.
+
+End Transmission: Day 1 11:41pm
+
+Day2 (Friday 1/30/15)
+
+This day was set to figure out how to animate reels, My goal for this semi-short programming session (6:30-midnight)
+I wanted to get a reel spinning.
+
+going back to the tutorial before messing with the primary code too much I wanted to get a handle on what it takes to draw a symbol
+as it scrolls down from the top. I modified the code from part 1 of the tutorial to get it to instead of loading the background image again,
+to load a new image based on an array of images. Once I got the symbols scrolling on the tutorial, (I may include this project as well) I 
+moved to the main game. This presented quite a few challenges. The first challenge was getting what I learned about scaling on Wednesday to apply to the symbols
+Once that was establish I then had to mess around with placement of the reel. This was a little trouble some because I didn't quite understand canvases. Once I 
+realized I could move the canvas instead of the offset the problems I had with the symbol showing up at the top of the background canvas was fixed.
+
+I found that without a background in the reel canvas it caused some issues with tracing. I used paint.net to combine a bunch of layers of the reel background
+provided to make a continuous background. This may have a negative effect on visuals but it should have a positive effect on performance as opposed to drawing
+a bunch of little rectangles. This same thought lead to me combining the frame and background asset into a single image file. This way, this could be drawn only once
+while the reels and reel backgrounds are drawn when the reels are running.
+
+The next hassle was figuring out how to make the reels scroll seamlessly. This was just a lot of trial and error in where the index moves and how to work that. By the 
+end of the night I had it so that the reels were scrolling but the top symbol was missing until the bottom symbol was off the screen then it popped up when the index changed.
+
+Day 3 Saturday 1/30/15
+
+Saturday morning I got back to work. my goal was to get more than one reel going and fix the stuttering mentioned above. The fix I came up with was to pre-load another symbol up top
+so the main index would be buffered by 2 symbols above and one symbol below. I also had to spend some time fixing the scrolling order as that got messed up when I 
+moved the index to the center and not the bottom.
+
+Once I got the reel scrolling really well, I worked on abstracting the reel symbols out of the object and then create a new object in the reel two canvas.
+I got reel two working really well and then added reel three, etc. I was also able to adjust the spin rates as a test. This was successful with no real struggles.
+
+Next order of business was stopping the reels, I started with stopping based on the space bar. I am not too concerned about an RNG right now. In fact I may not do 
+preassigned stops. We will see how the rest of the development goes and how I can do that without making the symbols jump to preassigned stops. I have some notes written 
+down on how I can preassign stops right now I am putting it in the nice to have feature.
+
+I added all the reels stopping with 1 second in between stops. That was all fine. While I was doing it I ralized that me putting all the reels in their own member object
+may have been a bad idea as it made doing something with all reels kind of a pain with a lot of duplicated code (IE reelOne.draw(), reelTwo.draw()) this lead me to take a
+detour and put all the reels into a single reel bank array. I was then able to relegate some of the initialization members that were class members to local variables.
+
+So now the first bank stops immediately, followed by the second 1.5 seconds later and I increased the speed by 3 of the next reel.
+
+Also for added unpredictability, I have the initial speeds be anywhere between 6 and 15. (Math.random() * 10)+5; This made it look a little flashier. Next parts to work 
+on are win assessment, credit handling. This will start out as one line straight across. Then work to 3 lines. Because animation is done. The tutorial linked above isn't much 
+help any more.
+
+Final push was wildly successful. No major struggles to speak of. Some minor struggles with canvas and fill text. Fortunately w3schools.com has some fantastic "play 
+around with it" sections for build in functions.
+
+My final piece, I got a no-ip, Dynamic IP Dynamic Name server, and hosted it on my PC at home. Should be up and that is one way to demo it.
+
+I am also going to send you guys the source code. Enjoy.
+
